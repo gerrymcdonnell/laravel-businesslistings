@@ -5,7 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Dashboard
+                    <span class="float-right">
+
+                    <a href="/listings/create" class="btn btn success">Add Listing</a>
+
+                    </span>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,6 +22,9 @@
 
                     <h3>
                         Your listings
+                        <hr>
+                        <br>
+
                         @if(count($listings))
                             <table>
                             <tr>
