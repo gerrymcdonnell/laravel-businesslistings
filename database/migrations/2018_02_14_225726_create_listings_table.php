@@ -19,7 +19,7 @@ class CreateListingsTable extends Migration
             //nullable
             //$table->integer('user_id')->nullable();
 
-            $table->integer('user_id')->default(1);
+            $table->integer('user_id');
 
             $table->string('name');
             $table->string('address');
@@ -41,34 +41,37 @@ class CreateListingsTable extends Migration
         //setup default data
         $rows = [
             [
-                'name'=>'first to do',
+                'name'=>'first listing',
                 'address'=>'blah blah bah',
                 'website'=>'kjkjkj',
                 'email'=>'jkjkjk',
                 'phone'=>'099 5656565',
                 'bio'=>'Lorem dfghdfgfdgdfgd',
+                'user_id'=>1,
 
                 'created_at'=>date('Y-m-d G:i:s'),
                 'updated_at'=>date('Y-m-d G:i:s')
             ],
             [
-                'name'=>'first to do',
+                'name'=>'second listing',
                 'address'=>'blah blah bah',
                 'website'=>'kjkjkj',
                 'email'=>'jkjkjk',
                 'phone'=>'099 5656565',
                 'bio'=>'Lorem dfghdfgfdgdfgd',
+                'user_id'=>1,
 
                 'created_at'=>date('Y-m-d G:i:s'),
                 'updated_at'=>date('Y-m-d G:i:s')
             ],
             [
-                'name'=>'first to do',
+                'name'=>'third listing',
                 'address'=>'blah blah bah',
                 'website'=>'kjkjkj',
                 'email'=>'jkjkjk',
                 'phone'=>'099 5656565',
                 'bio'=>'Lorem dfghdfgfdgdfgd',
+                'user_id'=>2,
 
                 'created_at'=>date('Y-m-d G:i:s'),
                 'updated_at'=>date('Y-m-d G:i:s')

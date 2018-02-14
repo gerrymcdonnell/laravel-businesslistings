@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{$listing->name}}</td>
                                 <td></td>
-                                <td>                                
+                                <td>
                                 </td>
                             </tr>
                             @endforeach
