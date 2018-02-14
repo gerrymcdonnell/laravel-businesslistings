@@ -24,6 +24,8 @@ Route::resource('todo','TodosController');*/
 
 Auth::routes();
 
+Route::resource('listings','ListingsController');
+
 Route::get('/dashboard', 'DashboardController@index');
 
 
