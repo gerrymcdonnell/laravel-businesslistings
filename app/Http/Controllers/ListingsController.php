@@ -79,9 +79,13 @@ class ListingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //show the edit form
     public function edit($id)
     {
-        //
+        $listing=Listing::find($id);
+        return view('listings.edit')
+            ->with('listing',$listing);
     }
 
     /**
@@ -91,9 +95,27 @@ class ListingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //update the data from the edit form
     public function update(Request $request, $id)
     {
-        //
+        $listing=Listing::find($id);
+
+        //get the input
+        $listing->name=$request->input('name');
+        $listing->email=$request->input('email');
+        $listing->website=$request->input('website');
+        $listing->address=$request->input('address');
+        $listing->phone=$request->input('phone');
+        $listing->bio=$request->input('bio');
+        $listing->user_id=auth()->user()->id;
+
+        //save it
+        $listing->save();
+
+        //flash message and redirect
+        return redirect('/dashboard')
+            ->with('success','Updated Listing');
     }
 
     /**
