@@ -62,7 +62,9 @@
         <main class="py-4">
 
         <div class="container">
+            <!-- errors here -->
             @include('inc.messages')
+            <!-- content here -->
             @yield('content')
         </div>
 

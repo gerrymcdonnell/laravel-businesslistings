@@ -21,6 +21,7 @@
                     {{Form::bsText('email','',['placeholder'=>'Company email'])}}
                     {{Form::bsText('phone','',['placeholder'=>'Company phone'])}}
                     {{Form::bsText('address','',['placeholder'=>'Company address'])}}
+                    {{Form::bsText('website','',['placeholder'=>'Company website'])}}
                     {{Form::bsTextArea('bio','',['placeholder'=>'Company Bio'])}}
 
 

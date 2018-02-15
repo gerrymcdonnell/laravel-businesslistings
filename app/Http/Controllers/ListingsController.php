@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Listing;
 
 class ListingsController extends Controller
 {
@@ -46,17 +47,19 @@ class ListingsController extends Controller
         //get the input
         $listing->name=$request->input('name');
         $listing->email=$request->input('email');
+        $listing->website=$request->input('website');
         $listing->address=$request->input('address');
         $listing->phone=$request->input('phone');
         $listing->bio=$request->input('bio');
+        $listing->user_id=auth()->user()->id;
 
 
         //save it
         $listing->save();
 
         //flash message and redirect
-        return redirect('/')
-            ->with('success','Saved');
+        return redirect('/dashboard')
+            ->with('success','Saved Listing');
     }
 
     /**
