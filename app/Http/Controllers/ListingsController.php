@@ -34,7 +34,29 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'email'
+        ]);
+
+        //create
+        $listing=new Listing;
+
+        //get the input
+        $listing->name=$request->input('name');
+        $listing->email=$request->input('email');
+        $listing->address=$request->input('address');
+        $listing->phone=$request->input('phone');
+        $listing->bio=$request->input('bio');
+
+
+        //save it
+        $listing->save();
+
+        //flash message and redirect
+        return redirect('/')
+            ->with('success','Saved');
     }
 
     /**
