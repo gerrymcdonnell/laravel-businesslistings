@@ -12,6 +12,19 @@ class ListingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+
+        //allow these actions without login
+        $this->middleware('auth',
+            [
+                'except'=>['index','show']
+            ]
+        );
+    }
+
+
+
     public function index()
     {
         $listings=Listing::orderBy('created_at','desc')->get();

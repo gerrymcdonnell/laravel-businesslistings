@@ -26,7 +26,7 @@
                     <hr>
                     Bio:
                     <div class="well">
-                    {{$listing->bio}}
+                        {{$listing->bio}}
                     </div>
 
 
