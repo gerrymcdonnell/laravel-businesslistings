@@ -12,14 +12,13 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','ListingsController@index');
 
 //point to index action ofr todos contrller
 /*Route::get('/', 'TodosController@index');
 
 Route::resource('todo','TodosController');*/
+
 
 
 Auth::routes();

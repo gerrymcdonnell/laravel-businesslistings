@@ -14,7 +14,8 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        //
+        $listings=Listing::orderBy('created_at','desc')->get();
+        return view('listings.index')->with('listings',$listings);
     }
 
     /**
@@ -71,7 +72,11 @@ class ListingsController extends Controller
      */
     public function show($id)
     {
-        //
+        //get the record
+        $listing=Listing::find($id);
+        //return the view and pass in the todo variable
+        return view('listings.show')
+            ->with('listing',$listing);
     }
 
     /**
@@ -140,6 +145,6 @@ class ListingsController extends Controller
 
         //flash message and redirect
         return redirect('/dashboard')
-            ->with('success','Todo delete');
+            ->with('success','Listing deleted');
     }
 }

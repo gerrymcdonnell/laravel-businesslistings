@@ -35,21 +35,22 @@
                             @foreach($listings as $listing)
                             <tr>
                                 <td>{{$listing->name}}</td>
-                                <td><a class="btn btn-default float-right" href="/listings/{{$listing->id}}/edit">Edit</a></td>
+                                <td><a class="btn btn-primary float-left" href="/listings/{{$listing->id}}/edit">Edit</a></td>
 
                                 <td>
-                                 <!--delete -->
+                                <!--delete has to be a form with a hidden method field saying its a delete -->
                                 {!! Form::open(['action' => ['ListingsController@destroy',$listing->id],
                                 'method'=>'post',
-                                'class'=>'float-xs-right']) !!}
+                                'class'=>'float-xs-right','onsubmit'=>'return confirm("Are you sure")']) !!}
 
-                                    <!--hidden field for method=put-->
-                                    {{Form::hidden('_method','DELETE')}}
-                                    {{Form::bsSubmit('delete me',['class'=>'btn btn-danger'])}}
+                                <!--hidden field for method=put-->
+                                {{Form::hidden('_method','DELETE')}}
+                                {{Form::bsSubmit('delete me',['class'=>'btn btn-danger float-right'])}}
 
                                 {!! Form::close() !!}
+                                <!-- end delete form -->
                                 </td>
-                                
+
                             </tr>
                             @endforeach
                             </table>
