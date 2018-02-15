@@ -38,7 +38,8 @@ class ListingsController extends Controller
         //validation
         $this->validate($request,[
             'name'=>'required',
-            'email'=>'email'
+            'email'=>'email',
+            'website'=>'required'
         ]);
 
         //create
@@ -99,6 +100,14 @@ class ListingsController extends Controller
     //update the data from the edit form
     public function update(Request $request, $id)
     {
+        //validation
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'email',
+            'website'=>'required'
+        ]);
+
+
         $listing=Listing::find($id);
 
         //get the input
@@ -126,6 +135,11 @@ class ListingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $listing=Listing::find($id);
+        $listing->delete();
+
+        //flash message and redirect
+        return redirect('/dashboard')
+            ->with('success','Todo delete');
     }
 }
